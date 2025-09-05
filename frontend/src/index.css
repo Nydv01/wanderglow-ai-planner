@@ -1,0 +1,56 @@
+/* src/index.css (CLEAN AND FINAL) */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Merriweather', serif;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.react-calendar {
+  width: 100%;
+  max-width: 100%;
+  background: white;
+  border: 1px solid #a0a096;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.125em;
+  border-radius: 0.5rem;
+}
+
+.dark .react-calendar {
+  background: #1f2937;
+  border: 1px solid #4b5563;
+}
+
+.react-calendar__tile--active,
+.react-calendar__tile--active:enabled:hover,
+.react-calendar__tile--active:enabled:focus {
+  background: hsl(210, 100%, 45%); /* Deep Ocean Blue */
+  color: white;
+}
+
+.highlighted-date {
+  background-color: hsl(210, 100%, 60%) !important; /* Light Ocean Blue */
+  color: black !important;
+  font-weight: bold;
+}

@@ -1,0 +1,89 @@
+[
+  {
+    "city": "Paris",
+    "days": [
+      {
+        "day": 1,
+        "location": "Eiffel Tower",
+        "description": "Visit the iconic Eiffel Tower and enjoy panoramic views.",
+        "duration": "3h",
+        "cost": "$30",
+        "image": "https://source.unsplash.com/800x600/?paris"
+      },
+      {
+        "day": 2,
+        "location": "Louvre Museum",
+        "description": "Explore the Louvre and see the Mona Lisa.",
+        "duration": "4h",
+        "cost": "$50",
+        "image": "https://source.unsplash.com/800x600/?louvre"
+      },
+      {
+        "day": 3,
+        "location": "Montmartre",
+        "description": "Stroll through Montmartre and visit Sacré-Cœur.",
+        "duration": "3h",
+        "cost": "$20",
+        "image": "https://source.unsplash.com/800x600/?montmartre"
+      }
+    ]
+  },
+  {
+    "city": "Tokyo",
+    "days": [
+      {
+        "day": 1,
+        "location": "Sensō-ji Temple",
+        "description": "Visit the historic Sensō-ji in Asakusa district.",
+        "duration": "3h",
+        "cost": "$20",
+        "image": "https://source.unsplash.com/800x600/?sensoji"
+      },
+      {
+        "day": 2,
+        "location": "Shibuya Crossing",
+        "description": "Experience the world-famous pedestrian crossing.",
+        "duration": "2h",
+        "cost": "$0",
+        "image": "https://source.unsplash.com/800x600/?shibuya"
+      },
+      {
+        "day": 3,
+        "location": "Tokyo Skytree",
+        "description": "Enjoy views from the tallest tower in Japan.",
+        "duration": "3h",
+        "cost": "$25",
+        "image": "https://source.unsplash.com/800x600/?skytree"
+      }
+    ]
+  },
+  {
+    "city": "Bali",
+    "days": [
+      {
+        "day": 1,
+        "location": "Ubud Monkey Forest",
+        "description": "Walk among the monkeys in the lush forest.",
+        "duration": "3h",
+        "cost": "$35",
+        "image": "https://source.unsplash.com/800x600/?ubud"
+      },
+      {
+        "day": 2,
+        "location": "Tegalalang Rice Terraces",
+        "description": "Marvel at the beautiful rice terraces.",
+        "duration": "2h",
+        "cost": "$10",
+        "image": "https://source.unsplash.com/800x600/?rice-terrace"
+      },
+      {
+        "day": 3,
+        "location": "Kuta Beach",
+        "description": "Relax on the sandy shores of Kuta Beach.",
+        "duration": "5h",
+        "cost": "$0",
+        "image": "https://source.unsplash.com/800x600/?kuta-beach"
+      }
+    ]
+  }
+]
