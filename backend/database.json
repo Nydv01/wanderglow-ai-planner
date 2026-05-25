@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "id": "_cl50waxdv",
+      "createdAt": "2026-05-24T17:32:34.403Z",
+      "username": "traveler",
+      "email": "traveler@gmail.com",
+      "passwordHash": "$2b$10$GYmWeOHLpkrGOeLHR8f7DuBD46l.ioz/dTgp7UVU.9V5I2TPQWUQa"
+    }
+  ],
+  "trips": []
+}
