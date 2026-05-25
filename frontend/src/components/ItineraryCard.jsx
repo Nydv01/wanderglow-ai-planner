@@ -26,7 +26,7 @@ const ItineraryCard = ({ day, activity, provided, snapshot, fetchNearbyPlaces, o
       setIsImageLoading(true);
       try {
         const query = activity.imageQuery || `${activity.name} travel`;
-        const response = await axios.get(`http://localhost:5001/api/images/search?query=${encodeURIComponent(query)}`);
+        const response = await axios.get(`/api/images/search?query=${encodeURIComponent(query)}`);
         if (active) {
           setImageUrl(response.data.imageUrl);
         }

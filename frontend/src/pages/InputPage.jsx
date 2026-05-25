@@ -152,7 +152,7 @@ const InputPage = ({ theme, toggleTheme }) => {
     const duration = calculateDuration(startDate, endDate);
     
     try {
-      const response = await axios.post('http://localhost:5001/api/generate-itinerary', {
+      const response = await axios.post('/api/generate-itinerary', {
         destination,
         duration,
         interests,

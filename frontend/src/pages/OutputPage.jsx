@@ -230,7 +230,7 @@ const OutputPage = ({ theme }) => {
   const autoSaveTrip = async (updatedItinerary) => {
     try {
       const budgetSum = calculateTotalBudgetWithSelections(updatedItinerary, selectedFlight, selectedHotel);
-      await axios.put(`http://localhost:5001/api/trips/${savedTripId}`, {
+      await axios.put(`/api/trips/${savedTripId}`, {
         itinerary: updatedItinerary,
         totalBudgetEstimate: budgetSum
       });
@@ -364,13 +364,13 @@ const OutputPage = ({ theme }) => {
 
       let response;
       if (isSaved && savedTripId) {
-        response = await axios.put(`http://localhost:5001/api/trips/${savedTripId}`, payload);
+        response = await axios.put(`/api/trips/${savedTripId}`, payload);
         toast.success('Trip updates saved to dashboard!');
       } else {
-        response = await axios.post('http://localhost:5001/api/trips', payload);
+        response = await axios.post('/api/trips', payload);
         setSavedTripId(response.data.id);
         setIsSaved(true);
-        setShareLink(`http://localhost:5173/share/${response.data.id}`);
+        setShareLink(`${window.location.origin}/share/${response.data.id}`);
         toast.success('Trip saved to your Dashboard!');
       }
     } catch (error) {
@@ -387,7 +387,7 @@ const OutputPage = ({ theme }) => {
     }
 
     try {
-      const response = await axios.post(`http://localhost:5001/api/trips/share/${savedTripId}`, {
+      const response = await axios.post(`/api/trips/share/${savedTripId}`, {
         isShared: !isShared
       });
       setIsShared(response.data.isShared);
@@ -858,7 +858,7 @@ const OutputPage = ({ theme }) => {
                               }));
 
                               if (isSaved && savedTripId) {
-                                axios.put(`http://localhost:5001/api/trips/${savedTripId}`, {
+                                axios.put(`/api/trips/${savedTripId}`, {
                                   selectedFlight: newFlight,
                                   totalBudgetEstimate: calculateTotalBudgetWithSelections(draggableItinerary, newFlight, selectedHotel)
                                 }).catch(err => console.error('Save flight failed:', err));
@@ -914,7 +914,7 @@ const OutputPage = ({ theme }) => {
                           }));
 
                           if (isSaved && savedTripId) {
-                            axios.put(`http://localhost:5001/api/trips/${savedTripId}`, {
+                            axios.put(`/api/trips/${savedTripId}`, {
                               selectedHotel: newHotel,
                               totalBudgetEstimate: calculateTotalBudgetWithSelections(draggableItinerary, selectedFlight, newHotel)
                             }).catch(err => console.error('Save hotel failed:', err));
@@ -1358,7 +1358,7 @@ const HotelCard = ({ hotel, isSelected, onSelect }) => {
           if (active) setImageUrl(cached);
           return;
         }
-        const response = await axios.get(`http://localhost:5001/api/images/search?query=${encodeURIComponent(query)}`);
+        const response = await axios.get(`/api/images/search?query=${encodeURIComponent(query)}`);
         if (response.data && response.data.imageUrl) {
           if (active) {
             setImageUrl(response.data.imageUrl);

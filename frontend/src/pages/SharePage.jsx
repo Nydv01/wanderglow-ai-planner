@@ -26,7 +26,7 @@ const SharePage = ({ theme }) => {
     const fetchSharedTrip = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`http://localhost:5001/api/trips/share/${tripId}`);
+        const response = await axios.get(`/api/trips/share/${tripId}`);
         setTrip(response.data);
       } catch (err) {
         console.error('Error fetching shared trip:', err);
@@ -412,7 +412,7 @@ const HotelCardReadOnly = ({ hotel }) => {
           if (active) setImageUrl(cached);
           return;
         }
-        const response = await axios.get(`http://localhost:5001/api/images/search?query=${encodeURIComponent(query)}`);
+        const response = await axios.get(`/api/images/search?query=${encodeURIComponent(query)}`);
         if (response.data && response.data.imageUrl) {
           if (active) {
             setImageUrl(response.data.imageUrl);

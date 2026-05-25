@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
   const checkUserSession = async (jwtToken) => {
     try {
       axios.defaults.headers.common['Authorization'] = `Bearer ${jwtToken}`;
-      const response = await axios.get('http://localhost:5001/api/auth/me');
+      const response = await axios.get('/api/auth/me');
       setUser(response.data);
     } catch (error) {
       console.error('Session verification failed:', error);
@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post('http://localhost:5001/api/auth/login', { email, password });
+      const response = await axios.post('/api/auth/login', { email, password });
       const { token: userToken, user: userData } = response.data;
       
       localStorage.setItem('token', userToken);
@@ -57,7 +57,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (username, email, password) => {
     try {
-      const response = await axios.post('http://localhost:5001/api/auth/register', { username, email, password });
+      const response = await axios.post('/api/auth/register', { username, email, password });
       const { token: userToken, user: userData } = response.data;
       
       localStorage.setItem('token', userToken);

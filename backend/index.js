@@ -2,6 +2,7 @@
 
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 require('dotenv').config();
 
 // Import the Google AI SDK only
@@ -13,6 +14,9 @@ const port = process.env.PORT || 5001;
 // Middleware to allow the frontend to connect
 app.use(cors());
 app.use(express.json());
+
+// Serve static assets from the React frontend build
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
 // --- Google Gemini Setup ---
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
@@ -115,6 +119,11 @@ app.post('/api/generate-itinerary', async (req, res) => {
     console.error('Error calling AI API:', error);
     res.status(500).json({ error: 'Failed to generate itinerary. Please ensure your Gemini API key is correct.' });
   }
+});
+
+// Catch-all route to serve the React app's index.html for client-side routing
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
 });
 
 app.listen(port, () => {

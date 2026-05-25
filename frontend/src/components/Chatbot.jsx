@@ -49,7 +49,7 @@ const Chatbot = () => {
     try {
       // Send message list including the new user message
       const history = [...messages, { type: 'user', text: userText }];
-      const response = await axios.post('http://localhost:5001/api/chat', { messages: history });
+      const response = await axios.post('/api/chat', { messages: history });
       
       handleAIMessage(response.data.text);
     } catch (error) {

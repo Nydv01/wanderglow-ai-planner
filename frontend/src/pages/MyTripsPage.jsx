@@ -40,7 +40,7 @@ const MyTripsPage = () => {
         setTripImages(prev => ({ ...prev, [tripId]: cached }));
         return;
       }
-      const response = await axios.get(`http://localhost:5001/api/images/search?query=${encodeURIComponent(destination)}`);
+      const response = await axios.get(`/api/images/search?query=${encodeURIComponent(destination)}`);
       if (response.data && response.data.imageUrl) {
         setTripImages(prev => ({ ...prev, [tripId]: response.data.imageUrl }));
         localStorage.setItem(`trip_img_${tripId}`, response.data.imageUrl);
@@ -55,7 +55,7 @@ const MyTripsPage = () => {
     if (!token) return;
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:5001/api/trips');
+      const response = await axios.get('/api/trips');
       setTrips(response.data);
       // Fetch cover images
       response.data.forEach(trip => {
@@ -83,7 +83,7 @@ const MyTripsPage = () => {
     if (!window.confirm('Are you sure you want to delete this trip?')) return;
 
     try {
-      await axios.delete(`http://localhost:5001/api/trips/${id}`);
+      await axios.delete(`/api/trips/${id}`);
       setTrips(trips.filter(t => t.id !== id));
       toast.success('Trip deleted successfully.');
     } catch (err) {
@@ -102,7 +102,7 @@ const MyTripsPage = () => {
     e.stopPropagation();
     if (!trip.isShared) {
       // Enable sharing
-      axios.post(`http://localhost:5001/api/trips/share/${trip.id}`, { isShared: true })
+      axios.post(`/api/trips/share/${trip.id}`, { isShared: true })
         .then(() => {
           trip.isShared = true;
           setSelectedShareTrip(trip);
